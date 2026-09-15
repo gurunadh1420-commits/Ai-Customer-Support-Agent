@@ -1,0 +1,44 @@
+# Secrets and Environment
+.env
+.env.*
+
+# Python Cache & Build Artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+*.log
+
+# Raw Data (do NOT commit ~492MB Kaggle dataset)
+data/raw/*
+!data/raw/.gitkeep
+
+# Processed Data — Ignore large intermediate CSVs, un-ignore Golden Set & evaluation results
+data/processed/*
+!data/processed/.gitkeep
+!data/processed/golden_set_final.csv
+!data/processed/golden_set_agent_results.csv
+!data/processed/golden_set_predictions.csv
+!data/processed/judge_sample_10.csv
+!data/processed/applesupport_weak_training.csv
+
+# Trained Models — Ignore experimental joblibs, un-ignore winning and baseline models required for evaluation
+models/**/*.joblib
+*.joblib
+!models/best_classifier/tfidf_logreg.joblib
+!models/best_classifier/tfidf_logreg_meta.joblib
+!models/baseline1/tfidf_logreg.joblib
+!models/baseline1/tfidf_logreg_meta.joblib
+!models/baseline2/tfidf_linearsvc.joblib
+!models/baseline2/tfidf_linearsvc_meta.joblib
+!models/retrieval/tfidf_cosine_index.joblib
+
+# IDE & OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+.ipynb_checkpoints/
+scratch/
